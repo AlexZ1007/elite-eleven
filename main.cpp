@@ -104,15 +104,13 @@ int main(){
         std::cin>>input;
 
         if (input == "pack")
-            std::cout << "Pack case selected\n";
+            std::cout << "Pack\n";
         else if(input == "logout")
             break;
         else
             std::cout << "Unknown input\n";
 
     }
-    system("cls");
-    std::cout << std::endl;
 
     return 0;
 }
