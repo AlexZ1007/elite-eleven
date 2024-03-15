@@ -1,3 +1,11 @@
 alex
 pack
+0
+pack
+0
+i
 logout
+cont
+pack
+0
+quit

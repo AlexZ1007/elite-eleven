@@ -21,7 +21,6 @@ private:
     int ovr;
 public:
     Player(const std::string &name, const std::string &type, int ovr) : name(name), type(type), ovr(ovr) {}
-
     const std::string &getName() const {
         return name;
     }
@@ -106,6 +105,27 @@ private:
     std::vector<Player> inventory;
 public:
     User(const std::string &name) : name(name), balance(100) {
+        this->login();
+    }
+
+
+    ~User() {
+       this->logout();
+    }
+
+    User( User const &entitate ){
+        this->name = entitate.getName();
+        this->inventory = entitate.getInventory();
+        this->balance = entitate.getBalance();
+    }
+
+
+
+    const std::string &getName() const {
+        return name;
+    }
+
+    void login(){
         std::cout<<"Logged in successfully! "<<std::endl;
         std::ifstream readFromFile("../saveFiles/"+name+".txt");
 
@@ -133,8 +153,10 @@ public:
         }
         std::cout<<"Your balance is "<<this->balance<<"."<<std::endl;
     }
-    ~User() {
-        std::cout<<"Logged out of "<<this->name<<std::endl;
+
+    void logout(){
+
+//        std::cout<<"Logged out of "<<this->name<<std::endl;
         std::ofstream printInFile("../saveFiles/"+name+".txt");
         printInFile<<(this->balance+100)<<std::endl;
         printInFile<<inventory.size()<<std::endl;
@@ -147,15 +169,23 @@ public:
         printInFile.close();
     }
 
-    const std::string &getName() const {
-        return name;
-    }
-
     void setName(const std::string &name) {
         User::name = name;
     }
 
+    const std::vector<Player> &getInventory() const {
+        return inventory;
+    }
+    User &operator = ( const User &user ) {
+        this->name = user.name;
+        this->balance = user.balance;
+        this->inventory = user.inventory;
+        return *this;
+    }
 
+    int getBalance() const {
+        return balance;
+    }
 
     friend std::ostream &operator<<(std::ostream &os, const User &user) {
         os << "Logged in as " << user.name<<std::endl;
@@ -172,6 +202,11 @@ public:
             std::cout<<"You got "<<openedPlayer<<std::endl;
             this->inventory.push_back(openedPlayer);
         }
+    }
+
+    void showInventory(){
+        for(unsigned long long i = 0; i<inventory.size();i++)
+            std::cout<<"ID: "<<i<<" "<<inventory[i]<<std::endl;
     }
 };
 
@@ -220,8 +255,17 @@ int main(){
                 user.openPack(packs[pack_id]);
             }
 
+        } else if(input == "inventory" || input == "i")
+            user.showInventory();
+        else if(input == "logout") {
+            user.logout();
+            std::cout<<"Insert username: ";
+            std::string newName;
+            std::cin>>newName;
+            User newUser(newName);
+            user=newUser;
         }
-        else if(input == "logout")
+        else if(input == "quit")
             break;
         else
             std::cout << "Unknown input\n";
