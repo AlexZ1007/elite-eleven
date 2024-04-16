@@ -108,7 +108,13 @@ add_executable(${PROJECT_NAME} main.cpp
         src/MenuItemShowPacks.cpp
         headers/MenuItemShowPacks.h
         src/MenuItemLogOut.cpp
-        headers/MenuItemLogOut.h)
+        headers/MenuItemLogOut.h
+        src/InvalidInputException.cpp
+        headers/InvalidInputException.h
+        src/NotEnoughMoneyException.cpp
+        headers/NotEnoughMoneyException.h
+        src/InvalidPackIdException.cpp
+        headers/InvalidPackIdException.h)
 
 ###############################################################################
 

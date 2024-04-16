@@ -6,7 +6,7 @@
 #include "headers/MenuItemLogOut.h"
 #include "headers/MenuItemShowPacks.h"
 #include "headers/MenuItemUserExecMethod.h"
-
+#include "headers/InvalidInputException.h"
 
 int main() {
     std::vector<Player> players = {
@@ -38,18 +38,19 @@ int main() {
         std::cout << "Your input: ";
         std::string input;
         std::cin >> input;
-
-        if (input == "pack") {
-            menuItemShowPacks.executeAction(packs, user);
-        } else if (input == "inventory" || input == "i")
-            menuItemUserExecMethod.executeAction();
-        else if (input == "logout") {
-            menuItemLogOut.executeAction(user);
-        } else if (input == "quit")
-            break;
-        else
-            std::cout << "Unknown input\n";
-
+        try{
+            if (input == "pack") {
+                menuItemShowPacks.executeAction(packs, user);
+            } else if (input == "inventory" || input == "i")
+                menuItemUserExecMethod.executeAction();
+            else if (input == "logout") {
+                menuItemLogOut.executeAction(user);
+            } else if (input == "quit")
+                break;
+            else throw InvalidInputException();
+        } catch(const InvalidInputException& e) {
+            std::cout << "Error "  << e.what();
+        }
     }
 
     return 0;

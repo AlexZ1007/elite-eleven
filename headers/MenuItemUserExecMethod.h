@@ -11,8 +11,10 @@
 
 
 class MenuItemUserExecMethod : public MenuItem {
+private:
     User *user;
     std::string execMethod;
+    MenuItem* menuI;
 public:
     MenuItemUserExecMethod() = default;
     ~MenuItemUserExecMethod() override = default;

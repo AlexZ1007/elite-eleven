@@ -11,6 +11,8 @@
 #include "User.h"
 
 class MenuItemShowPacks : public MenuItem {
+private:
+    MenuItem* menuI;
 public:
     MenuItemShowPacks() = default;
     ~MenuItemShowPacks() override = default;

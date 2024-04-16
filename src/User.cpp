@@ -4,6 +4,7 @@
 #include <fstream>
 #include <random>
 #include "../headers/User.h"
+#include "../headers/NotEnoughMoneyException.h"
 
 User::User(const std::string &name) : name(name), balance(100) {
     this->login();
@@ -29,16 +30,19 @@ void User::showInventory() {
  *
  */
 void User::openPack(Pack pack) {
-    if (this->balance < pack.getCost()) {
-        std::cout << "You don't have enough money! You have " << this->balance << ", but you need "
-                  << pack.getCost() << std::endl;
-    } else {
+    try{
+        if (this->balance < pack.getCost())
+            throw NotEnoughMoneyException(pack.getCost(), this->balance);
         this->balance -= pack.getCost();
         std::cout << "You opened " << pack << std::endl;
         Player openedPlayer = pack.open();
         std::cout << "You got " << openedPlayer << std::endl;
         this->inventory.push_back(openedPlayer);
+    } catch(const NotEnoughMoneyException& e) {
+        std::cout << "Error "  << e.what();
     }
+
+
 }
 
 int User::getBalance() const {

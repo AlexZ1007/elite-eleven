@@ -9,6 +9,8 @@
 #include "User.h"
 
 class MenuItemLogOut : public MenuItem {
+private:
+    MenuItem* menuI;
 public:
     MenuItemLogOut()  = default;
     ~MenuItemLogOut() override  = default;

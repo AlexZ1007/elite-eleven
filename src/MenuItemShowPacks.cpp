@@ -3,6 +3,7 @@
 //
 
 #include "../headers/MenuItemShowPacks.h"
+#include "../headers/InvalidPackIdException.h"
 
 MenuItemShowPacks::MenuItemShowPacks(const std::string &key) : MenuItem(key) {}
 
@@ -15,10 +16,13 @@ void MenuItemShowPacks::executeAction(const std::vector<Pack> &packs, User &user
         std::cout << "ID: " << i << " " << packs[i] << std::endl;
     std::cout << "Select pack id (-1 to cancel)";
     std::cin >> pack_id;
-    if (pack_id < 0 || pack_id >= sizeAsInt)
-        std::cout << "Pack selector left" << std::endl;
-    else {
+    try {
+        if (pack_id < 0 || pack_id >= sizeAsInt)
+            throw InvalidPackIdException();
         user.openPack(packs[pack_id]);
+    } catch(const InvalidPackIdException& e) {
+        std::cout << "Error "  << e.what();
     }
+
 
 }
