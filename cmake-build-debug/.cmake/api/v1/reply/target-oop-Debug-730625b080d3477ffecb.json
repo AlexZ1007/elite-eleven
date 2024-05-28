@@ -36,19 +36,19 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 162,
+				"line" : 164,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 141,
+				"line" : 143,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 152,
+				"line" : 154,
 				"parent" : 0
 			}
 		]
@@ -185,7 +185,15 @@
 				17,
 				19,
 				21,
-				23
+				23,
+				25
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				24
 			]
 		}
 	],
@@ -322,6 +330,16 @@
 		{
 			"backtrace" : 1,
 			"path" : "headers/PremiumPack.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/PackFactory.tpp",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "headers/PackFactory.h",
 			"sourceGroupIndex" : 1
 		}
 	],

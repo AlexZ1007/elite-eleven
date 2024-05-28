@@ -116,7 +116,9 @@ add_executable(${PROJECT_NAME} main.cpp
         src/InvalidPackIdException.cpp
         headers/InvalidPackIdException.h
         src/PremiumPack.cpp
-        headers/PremiumPack.h)
+        headers/PremiumPack.h
+        src/PackFactory.tpp
+        headers/PackFactory.h)
 
 ###############################################################################
 

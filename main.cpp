@@ -7,6 +7,7 @@
 #include "headers/User.h"
 #include "headers/MenuItemLogOut.h"
 #include "headers/MenuItemShowPacks.h"
+#include "headers/PackFactory.h"
 #include "headers/MenuItemUserExecMethod.h"
 #include "headers/InvalidInputException.h"
 
@@ -25,8 +26,9 @@ int main() {
     };
 
     std::vector<std::unique_ptr<Pack>> packs;
-    packs.push_back(std::make_unique<Pack>("basic", 10, players));
-    packs.push_back(std::make_unique<PremiumPack>("premium", 150, players, 90));
+    packs.push_back(PackFactory<Pack>::createPack("basic", 10, players));
+    packs.push_back(PackFactory<PremiumPack>::createPack("premium", 150, players, 90));
+
 
     std::cout << "Insert username: ";
     std::string name;
