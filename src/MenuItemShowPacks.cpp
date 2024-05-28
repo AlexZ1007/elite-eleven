@@ -7,22 +7,20 @@
 
 MenuItemShowPacks::MenuItemShowPacks(const std::string &key) : MenuItem(key) {}
 
-void MenuItemShowPacks::executeAction(const std::vector<Pack> &packs, User &user) {
+void MenuItemShowPacks::executeAction(const std::vector<std::unique_ptr<Pack>> &packs, User &user) {
     int pack_id;
     std::cout << "Available packs: \n";
     int sizeAsInt = static_cast<int>(packs.size());
 
     for (int i = 0; i < sizeAsInt; i++)
-        std::cout << "ID: " << i << " " << packs[i] << std::endl;
+        std::cout << "ID: " << i << " " << *packs[i] << std::endl;
     std::cout << "Select pack id (-1 to cancel)";
     std::cin >> pack_id;
     try {
         if (pack_id < 0 || pack_id >= sizeAsInt)
             throw InvalidPackIdException();
-        user.openPack(packs[pack_id]);
+        user.openPack(*packs[pack_id]);
     } catch(const InvalidPackIdException& e) {
         std::cout << "Error "  << e.what();
     }
-
-
 }

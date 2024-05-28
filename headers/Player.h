@@ -13,15 +13,12 @@ private:
     std::string type;
     int ovr;
 public:
+    Player() = default;
     Player(const std::string &name, const std::string &type, int ovr);
 
-    const std::string &getName() const;
-
-
-    const std::string &getType() const;
-
-
-    int getOvr() const;
+    [[nodiscard]] const std::string &getName() const;
+    [[nodiscard]]  const std::string &getType() const;
+    [[nodiscard]]  int getOvr() const;
 
     friend std::ostream &operator<<(std::ostream &os, const Player &player);
 

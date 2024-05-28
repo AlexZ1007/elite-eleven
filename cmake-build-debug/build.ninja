@@ -133,6 +133,13 @@ build CMakeFiles/oop.dir/src/InvalidPackIdException.cpp.obj: CXX_COMPILER__oop_u
   OBJECT_DIR = CMakeFiles\oop.dir
   OBJECT_FILE_DIR = CMakeFiles\oop.dir\src
 
+build CMakeFiles/oop.dir/src/PremiumPack.cpp.obj: CXX_COMPILER__oop_unscanned_Debug C$:/unibuc$ mafia/poo/elite-eleven/src/PremiumPack.cpp || cmake_object_order_depends_target_oop
+  DEP_FILE = CMakeFiles\oop.dir\src\PremiumPack.cpp.obj.d
+  FLAGS = -g -std=c++23 -fdiagnostics-color=always -Wall -Wextra -pedantic
+  INCLUDES = -isystem "C:/unibuc mafia/poo/elite-eleven/generated/include"
+  OBJECT_DIR = CMakeFiles\oop.dir
+  OBJECT_FILE_DIR = CMakeFiles\oop.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target oop
@@ -141,7 +148,7 @@ build CMakeFiles/oop.dir/src/InvalidPackIdException.cpp.obj: CXX_COMPILER__oop_u
 #############################################
 # Link the executable oop.exe
 
-build oop.exe: CXX_EXECUTABLE_LINKER__oop_Debug CMakeFiles/oop.dir/main.cpp.obj CMakeFiles/oop.dir/generated/src/Helper.cpp.obj CMakeFiles/oop.dir/src/Player.cpp.obj CMakeFiles/oop.dir/src/Pack.cpp.obj CMakeFiles/oop.dir/src/User.cpp.obj CMakeFiles/oop.dir/src/MenuItem.cpp.obj CMakeFiles/oop.dir/src/MenuItemUserExecMethod.cpp.obj CMakeFiles/oop.dir/src/MenuItemShowPacks.cpp.obj CMakeFiles/oop.dir/src/MenuItemLogOut.cpp.obj CMakeFiles/oop.dir/src/InvalidInputException.cpp.obj CMakeFiles/oop.dir/src/NotEnoughMoneyException.cpp.obj CMakeFiles/oop.dir/src/InvalidPackIdException.cpp.obj
+build oop.exe: CXX_EXECUTABLE_LINKER__oop_Debug CMakeFiles/oop.dir/main.cpp.obj CMakeFiles/oop.dir/generated/src/Helper.cpp.obj CMakeFiles/oop.dir/src/Player.cpp.obj CMakeFiles/oop.dir/src/Pack.cpp.obj CMakeFiles/oop.dir/src/User.cpp.obj CMakeFiles/oop.dir/src/MenuItem.cpp.obj CMakeFiles/oop.dir/src/MenuItemUserExecMethod.cpp.obj CMakeFiles/oop.dir/src/MenuItemShowPacks.cpp.obj CMakeFiles/oop.dir/src/MenuItemLogOut.cpp.obj CMakeFiles/oop.dir/src/InvalidInputException.cpp.obj CMakeFiles/oop.dir/src/NotEnoughMoneyException.cpp.obj CMakeFiles/oop.dir/src/InvalidPackIdException.cpp.obj CMakeFiles/oop.dir/src/PremiumPack.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\oop.dir

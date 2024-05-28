@@ -7,6 +7,7 @@
 
 
 #include <vector>
+#include "memory"
 #include "MenuItem.h"
 #include "User.h"
 
@@ -20,7 +21,7 @@ public:
     explicit MenuItemShowPacks(const std::string &key);
 
     using MenuItem::executeAction;
-    void executeAction(const std::vector<Pack>& packs, User &user);
+    void executeAction(const std::vector<std::unique_ptr<Pack>>& packs, User &user);
 
 };
 

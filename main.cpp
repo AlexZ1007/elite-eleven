@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <memory>
 #include "headers/Pack.h"
+#include "headers/PremiumPack.h"
 #include "headers/User.h"
 #include "headers/MenuItemLogOut.h"
 #include "headers/MenuItemShowPacks.h"
@@ -22,8 +24,9 @@ int main() {
             Player("Erling Haaland", "basic", 86)
     };
 
-    std::vector<Pack> packs = {Pack("basic", 10, players)};
-
+    std::vector<std::unique_ptr<Pack>> packs;
+    packs.push_back(std::make_unique<Pack>("basic", 10, players));
+    packs.push_back(std::make_unique<PremiumPack>("premium", 150, players, 90));
 
     std::cout << "Insert username: ";
     std::string name;

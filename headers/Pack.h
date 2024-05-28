@@ -7,15 +7,18 @@
 #include "Player.h"
 
 class Pack {
-private:
+protected:
     std::string name;
     int cost;
     std::vector<Player> possibleDrops;
 public:
+    Pack() = default;
     Pack(const std::string &name, int cost, const std::vector<Player> &possibleDrops);
-    int getCost() const;
+    virtual ~Pack() = default;
+
+    [[nodiscard]] int getCost() const;
     friend std::ostream &operator<<(std::ostream &os, const Pack &pack);
-    Player open();
+    virtual Player open();
 
 };
 

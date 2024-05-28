@@ -114,7 +114,9 @@ add_executable(${PROJECT_NAME} main.cpp
         src/NotEnoughMoneyException.cpp
         headers/NotEnoughMoneyException.h
         src/InvalidPackIdException.cpp
-        headers/InvalidPackIdException.h)
+        headers/InvalidPackIdException.h
+        src/PremiumPack.cpp
+        headers/PremiumPack.h)
 
 ###############################################################################
 

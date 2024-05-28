@@ -29,7 +29,7 @@ void User::showInventory() {
  * @note This method modifies the user's balance and inventory if the pack is successfully opened.
  *
  */
-void User::openPack(Pack pack) {
+void User::openPack(Pack& pack) {
     try{
         if (this->balance < pack.getCost())
             throw NotEnoughMoneyException(pack.getCost(), this->balance);
@@ -41,8 +41,6 @@ void User::openPack(Pack pack) {
     } catch(const NotEnoughMoneyException& e) {
         std::cout << "Error "  << e.what();
     }
-
-
 }
 
 int User::getBalance() const {

@@ -5,6 +5,8 @@
 #include <iostream>
 #include <vector>
 #include "Pack.h"
+#include "memory"
+
 
 #ifndef OOP_USER_H
 #define OOP_USER_H
@@ -38,7 +40,7 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const User &user);
 
-    void openPack(Pack pack);
+    void openPack(Pack& pack);
 
     void showInventory();
 };
