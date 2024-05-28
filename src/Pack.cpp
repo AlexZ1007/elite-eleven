@@ -3,8 +3,10 @@
 //
 
 #include <random>
-
 #include "../headers/Pack.h"
+
+int Pack::staticId = 0;
+
 Player Pack::open() {
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -22,4 +24,11 @@ int Pack::getCost() const {
 }
 
 Pack::Pack(const std::string &name, int cost, const std::vector<Player> &possibleDrops) : name(name), cost(cost),
-                                                                                          possibleDrops(possibleDrops) {}
+                                                                                          possibleDrops(possibleDrops) {
+    id=staticId;
+    staticId++;
+}
+
+int Pack::getId() const {
+    return id;
+}

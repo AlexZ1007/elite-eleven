@@ -8,6 +8,8 @@
 
 class Pack {
 protected:
+    static int staticId;
+    int id;
     std::string name;
     int cost;
     std::vector<Player> possibleDrops;
@@ -15,6 +17,8 @@ public:
     Pack() = default;
     Pack(const std::string &name, int cost, const std::vector<Player> &possibleDrops);
     virtual ~Pack() = default;
+
+    int getId() const;
 
     [[nodiscard]] int getCost() const;
     friend std::ostream &operator<<(std::ostream &os, const Pack &pack);

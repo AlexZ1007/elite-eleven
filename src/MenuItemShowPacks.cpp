@@ -13,7 +13,7 @@ void MenuItemShowPacks::executeAction(const std::vector<std::unique_ptr<Pack>> &
     int sizeAsInt = static_cast<int>(packs.size());
 
     for (int i = 0; i < sizeAsInt; i++)
-        std::cout << "ID: " << i << " " << *packs[i] << std::endl;
+        std::cout << "ID: " << packs[i]->getId() << " " << *packs[i] << std::endl;
     std::cout << "Select pack id (-1 to cancel)";
     std::cin >> pack_id;
     try {
